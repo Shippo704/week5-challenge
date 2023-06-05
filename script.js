@@ -24,9 +24,10 @@ $(function () {
   //add current date to header
   currentDay.text(currDay);
 
+
   //Event listener for save button
   saveButton.on("click", function() {
-    localStorage.setItem($(this).parent().attr("id"), $(this).parent().children("textarea").val());
+    localStorage.setItem($(this).parent().attr("id"), JSON.stringify($(this).parent().children("textarea").val()));
   })
 
   //--------------------------------------------------
@@ -153,13 +154,16 @@ $(function () {
     hour18.addClass("future");
   }
 
+  // Set previous textarea data with data from local storage
+  hour9.children("textarea").text(JSON.parse(localStorage.getItem("hour-9")));
+  hour10.children("textarea").text(JSON.parse(localStorage.getItem("hour-10")));
+  hour11.children("textarea").text(JSON.parse(localStorage.getItem("hour-11")));
+  hour12.children("textarea").text(JSON.parse(localStorage.getItem("hour-12")));
+  hour13.children("textarea").text(JSON.parse(localStorage.getItem("hour-13")));
+  hour14.children("textarea").text(JSON.parse(localStorage.getItem("hour-14")));
+  hour15.children("textarea").text(JSON.parse(localStorage.getItem("hour-15")));
+  hour16.children("textarea").text(JSON.parse(localStorage.getItem("hour-16")));
+  hour17.children("textarea").text(JSON.parse(localStorage.getItem("hour-17")));
+  hour18.children("textarea").text(JSON.parse(localStorage.getItem("hour-18")));
 
-
-
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
 });
